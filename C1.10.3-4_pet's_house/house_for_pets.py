@@ -65,3 +65,17 @@ class Volunteer(User):
 
     def info(self):
         return f'{self.getName()}, г.{self.getCity()}, статус "{self.getLevel()}"'
+
+class GuestList:
+    def __init__(self, guest=None):
+        self.guest_list = []
+        self.guest = guest
+
+    def getGuest(self, guest):
+        self.guest_list.append(guest.info())
+
+    def getGuestList(self):
+        str = ""
+        for i in self.guest_list:
+            str = str + i + "\n"
+        return f'\nСписок для корпоратива:\n{str}'
