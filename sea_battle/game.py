@@ -62,3 +62,4 @@ test_field.cheakInput(coords4)
 print("Поле для расстановки")
 test_field.test()
 print("---------------------------")
+
