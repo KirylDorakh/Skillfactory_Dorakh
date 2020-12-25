@@ -105,7 +105,7 @@ class Game:
                 except ValueError:
                     print(" ")
                 else:
-                    print('ИИ выбрает куда стрелять...')
+                    print('ИИ выбирает куда стрелять...')
             while not (1 <= y <= 6):
                 try:
                     y = random.randint(0, 6)
@@ -114,7 +114,7 @@ class Game:
                 except ValueError:
                     print("Все еще думает...")
                 else:
-                    print('ИИ выбрает куда стрелять...')
+                    print('ИИ выбирает куда стрелять...')
             shoot = x, y
             print("-----------------------------------------")
             print(f"Выстрел ИИ {shoot}")
@@ -579,7 +579,7 @@ class Field():
     # Красивый вывод тестового поля
     def test(self):
         print("-----------------------------------------")
-        print('    1    2   3   4    5   6 ')
+        print('    1   2   3   4   5   6 ')
         for i, row in enumerate(self.getField):
             row_str = f"{i + 1} | {' | '.join(row)} |"
             print(row_str)
