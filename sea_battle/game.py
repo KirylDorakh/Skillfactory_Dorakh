@@ -66,7 +66,6 @@ def player_coorect_shoot(shoot):
 # Проверка попадания на пробитие
 def second_chance_for_player(cheak):
     if cheak == "Попадание!!!":
-        ai_field.test()
         print(f'Ходите еще раз')
         shoot = game.playerShot()
         shoot4 = player_coorect_shoot(shoot)
@@ -76,20 +75,21 @@ def second_chance_for_player(cheak):
         cheak1 = ai_field.cheakFromSecretAIField(*cheak)
         return second_chance_for_player(cheak1)
     else:
-        return "Переход хода"
+        ai_field.test()
+        return print("Переход хода")
 
 def second_chance_for_ai(cheak):
     if cheak == "Попадание!!!":
         print(f'AI ходит еще раз')
-        player_field.test()
         shoot = game.aiShot()
         shoot1 = ai_coorect_shoot(shoot)
 
         ai.writeShootHistory(shoot1)
         print("AI's Shoots", ai.getShootHistory())
         cheak1 = player_field.cheakShoot(shoot1)
-        return second_chance_for_player(cheak1)
+        return second_chance_for_ai(cheak1)
     else:
+        player_field.test()
         return print("Переход хода")
 
 def cheak_results(ai_result, player_result):
@@ -105,22 +105,18 @@ def cheak_results(ai_result, player_result):
 def main_play():
     result = None
     while not result:
-        print("-----------------------------------------")
-        print('             Поле Игрока')
-
+        player_field.test()
         shoot = next(game.changeOfCourse())
         shoot1 = ai_coorect_shoot(shoot)
 
         ai.writeShootHistory(shoot1)
         print("AI's Shoots", ai.getShootHistory())
         cheak2 = player_field.cheakShoot(shoot1)
-        player_field.test()
+
         second_chance_for_ai(cheak2)
         ai_result = player_field.cheak_result_player()
 
         # Ход игрока
-        print("-----------------------------------------")
-        print('              Поле ИИ')
         ai_field.test()
         shoot3 = next(game.changeOfCourse())
         shoot4 = player_coorect_shoot(shoot3)
@@ -129,17 +125,13 @@ def main_play():
         print("Player's Shoots", player.getShootHistory())
         cheak = ai_secret_field.cheakShootForAIField(shoot4)
         cheak1 = ai_field.cheakFromSecretAIField(*cheak)
-        print("-----------------------------------------")
-        print('              Поле ИИ')
-        ai_field.test()
+
         second_chance_for_player(cheak1)
 
         #проверка результата
         player_result = ai_secret_field.cheak_result_player()
         result = cheak_results(ai_result, player_result)
     return result
-
-
 
 input_field()
 
