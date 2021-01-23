@@ -47,6 +47,9 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
