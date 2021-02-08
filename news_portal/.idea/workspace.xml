@@ -3,45 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/LICENSE.python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/Django-3.1.5.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/django/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/static/admin/css/changelists.css" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/static/admin/css/changelists.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/static/admin/css/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/static/admin/css/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/django/utils/archive.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django/utils/archive.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.0.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pip-21.0.1.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/DESCRIPTION.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz-2020.5.dist-info/zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/zoneinfo/Africa/Juba" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/zoneinfo/Africa/Juba" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/zoneinfo/leapseconds" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/zoneinfo/leapseconds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/zoneinfo/tzdata.zi" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pytz/zoneinfo/tzdata.zi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools-49.2.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/setuptools-49.2.1.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse-0.4.1.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/sqlparse-0.4.1.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/django-admin.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/django-admin.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/easy_install-3.8.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/easy_install-3.8.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/easy_install.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/easy_install.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pip.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pip.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pip3.8.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pip3.8.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/pip3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/pip3.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Scripts/sqlformat.exe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Scripts/sqlformat.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/console.txt" beforeDir="false" afterPath="$PROJECT_DIR$/console.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,5 +47,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

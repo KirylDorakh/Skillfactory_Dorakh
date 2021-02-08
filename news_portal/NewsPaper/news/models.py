@@ -13,9 +13,9 @@ class Author(models.Model):
         posts = Post.objects.filter(author=self.id)
         post_raiting = sum([r.rating_of_post * 3 for r in posts])
         comments = Comment.objects.filter(user=self.id)
-        comment_raiting = sum([c.rating_of_comment for c in comments])  # сумма лайков/дислайков к комментам автора
-        all_to_post_comment_raiting = sum([r.comment_raiting for r in Comment.objects.filter(post__in=posts)])
-        self.author_raiting = post_raiting + comment_raiting + all_to_post_comment_raiting
+        comment_raiting = sum([c.rating_of_comment for c in comments])
+        all_to_post_comment_raiting = sum([r.rating_of_comment for r in Comment.objects.filter(post__in=posts)])
+        self.rating_of_author = post_raiting + comment_raiting + all_to_post_comment_raiting
         self.save()
 
     def __str__(self):

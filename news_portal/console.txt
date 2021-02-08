@@ -1,16 +1,19 @@
 from django.contrib.auth.models import User
 from news.models import Author, Category, Post, PostCategory, Comment
 
+# Создать двух пользователей
 u1 = User.objects.create(username = 'Kiryl')
 u1.save()
 u2 = User.objects.create(username = 'Sasha')
 u2.save()
 
+# Создать два объекта модели Author, связанные с пользователями.
 a1 = Author.objects.create(user = u1)
 a1.save()
 a2 = Author.objects.create(user = u2)
 a2.save()
 
+# Добавить 4 категории в модель Category
 c1 = Category.objects.create(name = 'Sport')
 c1.save()
 c2 = Category.objects.create(name = 'People')
@@ -20,4 +23,91 @@ c3.save()
 c4 = Category.objects.create(name = 'Cars')
 c4.save()
 
+# Добавить 2 статьи и 1 новость
+p1 = Post.objects.create(author = a1, art_or_nw = "AR", headline = 'Article 1', content = 'akhfhhjdsgajfhgj')
+p1.save()
+# статья или новость:
+p1.get_art_or_nw_display()
+
+p2 = Post.objects.create(author = a2, art_or_nw = "AR", headline = 'Article 2', content = 'akhfdasfdsafadsfhjdsgajfhgj')
+p2.save()
+p3 = Post.objects.create(author = a1, art_or_nw = "NW", headline = 'News 1', content = 'akhfdasfdsafadsfhjdsgajfhgj')
+p3.save()
+
+# Присвоить им категории
+pc1 = PostCategory.objects.create(post = p1, category = c1)
+pc1.save()
+pc2 = PostCategory.objects.create(post = p1, category = c2)
+pc2.save()
+pc3 = PostCategory.objects.create(post = p1, category = c3)
+pc3.save()
+pc4 = PostCategory.objects.create(post = p2, category = c3)
+pc4.save()
+pc5 = PostCategory.objects.create(post = p2, category = c4)
+pc5.save()
+pc6 = PostCategory.objects.create(post = p3, category = c2)
+pc6.save()
+
+p1.categories.values()
+
+# Создать как минимум 4 комментария к разным объектам модели Post
+com1 = Comment.objects.create(post = p1, user = u1, comment_text = 'first comment')
+com1.save()
+com2 = Comment.objects.create(post = p1, user = u2, comment_text = 'second comment')
+com2.save()
+com3 = Comment.objects.create(post = p2, user = u2, comment_text = 'post 2 first comment')
+com3.save()
+com4 = Comment.objects.create(post = p3, user = u1, comment_text = 'post 3 first comment')
+com4.save()
+com4
+
+#Применяя функции like() и dislike() к статьям/новостям и комментариям
+p1.like()
+p1.rating_of_post
+p1.save()
+p2.like()
+p2.like()
+p2.like()
+p2.dislike()
+p2.save()
+p3.like()
+p3.like()
+p3.like()
+p3.like()
+p3.like()
+p3.like()
+p3.like()
+p3.dislike()
+p3.dislike()
+p3.dislike()
+p3.save()
+
+com1.like()
+com1.save()
+com2.like()
+com2.like()
+com2.save()
+com3.dislike()
+com3.save()
+com4.dislike()
+com4.dislike()
+com4.save()
+
+# Обновить рейтинги пользователей
+a1.update_rating()
+a1.save()
+a2.update_rating()
+a2.save()
+
+# Вывести username и рейтинг лучшего пользователя
+Author.objects.all().order_by('-rating_of_author').values('user__username', 'rating_of_author')[0]
+
+# Вывести дату добавления, username автора, рейтинг, заголовок и превью лучшей статьи
+posts = Post.objects.all().order_by('-rating_of_post')
+posts.values('post_time', 'author__user__username', 'rating_of_post','headline')[0]
+best = posts[0]
+best.preview()
+
+# Вывести все комментарии (дата, пользователь, рейтинг, текст) к этой статье
+Comment.objects.filter(post = best).values('comment_time','user__username','rating_of_comment','comment_text')
 
