@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -5,35 +6,59 @@ from django.contrib.auth.models import User
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    rating_of_author = models.FloatField(default=0.0)
+    rating_of_author = models.IntegerField(default=0)
+
 
     def update_rating(self):
-        pass
+        posts = Post.objects.filter(author=self.id)
+        post_raiting = sum([r.rating_of_post * 3 for r in posts])
+        comments = Comment.objects.filter(user=self.id)
+        comment_raiting = sum([c.rating_of_comment for c in comments])  # сумма лайков/дислайков к комментам автора
+        all_to_post_comment_raiting = sum([r.comment_raiting for r in Comment.objects.filter(post__in=posts)])
+        self.author_raiting = post_raiting + comment_raiting + all_to_post_comment_raiting
+        self.save()
+
+    def __str__(self):
+        author_id = str(self.user.username)
+        return author_id
 
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
+    news = "NW"
+    article = "AR"
+    CAT = [(news, "Новость"), (article, 'Статья')]
+
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    article_or_news = models.BooleanField(default=False)
-    # False - article, True - news
-    post_time_in = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=255)
-    post_text = models.TextField()
-    rating_of_post = models.FloatField(default=0.0)
+    art_or_nw = models.CharField(max_length=2,
+                            choices=CAT,
+                            default=news)
+    post_time = models.DateTimeField(auto_now_add=True)
+    headline = models.CharField(max_length=255)
+    content = models.TextField()
+    rating_of_post = models.IntegerField(default=0)
 
     categories = models.ManyToManyField(Category, through='PostCategory')
 
+    def __str__(self):
+        return self.headline
+
     def like(self):
-        return self.rating_of_post + 1
+        self.rating_of_post = self.rating_of_post + 1
+        self.save()
 
     def dislike(self):
-        return self.rating_of_post - 1
+        self.rating_of_post = self.rating_of_post - 1
+        self.save()
 
     def preview(self):
-        return self.post_text[0, 123] + "..."
+        return self.content[:123] + "..."
 
 
 class PostCategory(models.Model):
@@ -46,11 +71,16 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     comment_text = models.TextField()
-    comment_time_in = models.DateTimeField(auto_now_add=True)
-    rating_of_comment = models.FloatField(default=0.0)
+    comment_time = models.DateTimeField(auto_now_add=True)
+    rating_of_comment = models.IntegerField(default = 0)
 
     def like(self):
-        return self.rating_of_comment + 1
+        self.rating_of_comment = self.rating_of_comment + 1
+        self.save()
 
     def dislike(self):
-        return self.rating_of_comment - 1
+        self.rating_of_comment = self.rating_of_comment - 1
+        self.save()
+
+    def __str__(self):
+        return self.comment_text

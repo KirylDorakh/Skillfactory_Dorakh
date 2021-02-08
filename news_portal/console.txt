@@ -1,0 +1,23 @@
+from django.contrib.auth.models import User
+from news.models import Author, Category, Post, PostCategory, Comment
+
+u1 = User.objects.create(username = 'Kiryl')
+u1.save()
+u2 = User.objects.create(username = 'Sasha')
+u2.save()
+
+a1 = Author.objects.create(user = u1)
+a1.save()
+a2 = Author.objects.create(user = u2)
+a2.save()
+
+c1 = Category.objects.create(name = 'Sport')
+c1.save()
+c2 = Category.objects.create(name = 'People')
+c2.save()
+c3 = Category.objects.create(name = 'Tech')
+c3.save()
+c4 = Category.objects.create(name = 'Cars')
+c4.save()
+
+
