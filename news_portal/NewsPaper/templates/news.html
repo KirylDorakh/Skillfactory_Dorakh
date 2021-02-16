@@ -29,7 +29,7 @@ News
                     {{ post.headline | censor}}
                 </td>
                 <td>
-                     {{ post.post_time | date:'d-M-Y h:m'  }}
+                    {{ post.post_time | date:'d-M-Y'}}
                 </td>
                 <td>
                     {{ post.content|censor|truncatechars:50 }}

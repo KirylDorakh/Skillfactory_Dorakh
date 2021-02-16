@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_pr/pr/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../test_pr/pr/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_pr/pr/simpleapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test_pr/pr/simpleapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
