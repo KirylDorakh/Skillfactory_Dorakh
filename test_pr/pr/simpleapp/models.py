@@ -2,33 +2,21 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 
-# Создаём модель товара
+# Create your models here.
 class Product(models.Model):
-    name = models.CharField(
-        max_length=50,
-        unique=True,  # названия товаров не должны повторяться
-    )
-    description = models.TextField()
+    name = models.CharField(max_length=200)  # имя товара
+    price = models.FloatField(validators=[MinValueValidator(0.0, 'Price should be >= 0.0')])  # цена товара
     quantity = models.IntegerField(
-        validators=[MinValueValidator(0)],
-    )
-    # поле категории будет ссылаться на модель категории
-    category = models.ForeignKey(
-        to='Category',
-        on_delete=models.CASCADE,
-        related_name='products',  # все продукты в категории будут доступны через поле products
-    )
-    price = models.FloatField(
-        validators=[MinValueValidator(0.0)],
-    )
+        validators=[MinValueValidator(0, 'Quantity should be >= 0')])  # количество товара на складе
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name.title()}: {self.description[:20]}'
+        return f'{self.name} {self.quantity}'
 
 
-#  создаём категорию, к которой будет привязываться товар
+# модель категории с одним полем имени
 class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)  # названия категорий тоже не должны повторяться
+    name = models.CharField(max_length=200)
 
     def __str__(self):
-        return f'{self.name.title()}'
+        return f'{self.name}'
