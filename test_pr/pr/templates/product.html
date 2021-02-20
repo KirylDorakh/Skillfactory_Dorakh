@@ -7,3 +7,17 @@ Products
 {% block content %}
 {{product}}
 {% endblock content %}
+
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+<h1>{{ post.headline | censor}}</h1>
+<hr>
+ {{ post.content | censor}}
+<hr>
+<h6> Дата загрузки: {{ post.post_time | date:'d-M-Y'}} {{ post.post_time | time}}</h6>
+{% endblock content %}

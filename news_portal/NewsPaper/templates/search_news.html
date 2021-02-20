@@ -1,0 +1,51 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+
+
+<h2>Поиск</h2>
+ <a href="/news/"><h5>Вернуться на страницу со всеми новостями</h5></a>
+
+<hr>
+<form method="GET">
+    {{ filter.form }}
+    <input type="submit" value="Найти">
+</form>
+    <hr>
+    {% if news %}
+        <table>
+            <tr>
+                <td>
+                    Заголовок
+                </td>
+                <td>
+                    Дата публикации
+                </td>
+                <td>
+                    Контент
+                </td>
+            </tr>
+            {% for post in filter.qs %}
+            <tr>
+                <td>
+                    {{ post.headline | censor}}
+                </td>
+                <td>
+                    {{ post.post_time | date:'Y-m-d'}}
+                </td>
+                <td>
+                    {{ post.content|censor|truncatechars:50 }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h3>Новостей нет</h3>
+    {% endif %}
+{% endblock content %}
