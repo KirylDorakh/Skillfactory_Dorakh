@@ -1,0 +1,38 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Product
+{% endblock title %}
+
+{% block content %}
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Quantity
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ product.name|title }}
+        </td>
+        <td>
+            {{ product.category.name|title }}
+        </td>
+        <td>
+            {{ product.price }}
+        </td>
+        <td>
+            {{ product.quantity }}
+        </td>
+    </tr>
+</table>
+{% endblock content %}

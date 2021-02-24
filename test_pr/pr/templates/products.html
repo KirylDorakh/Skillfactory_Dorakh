@@ -8,13 +8,13 @@ Products
 
 {% block content %}
 
-
-<!-- Перед таблицей добавим форму для поиска -->
+<h2>Products</h2>
+<hr>
 <form method="GET">
-    {{ filter.form }} <!-- Форму от фильтров за нас сделает django. А вот кнопку, увы придётся делать самому -->
+    {{ filter.form }}
     <input type="submit" value="Найти">
 </form>
-
+<hr>
 <table>
     <thead>
         <th>
@@ -30,10 +30,12 @@ Products
             Quantity
         </th>
     </thead>
-    {% for product in filter.qs %} <!-- поменяем products на filter.qs, т.к. теперь мы забираем уже отобранную по каким-то параметрам информацию -->
+    {% for product in filter.qs %} 
     <tr>
         <td>
-            {{ product.name|title }}
+            <a href="{% url 'product_detail' product.id %}">{{ product.name|title }}</a> <!-- При нажатии на имя товара в таблцие нас теперь будет перекидывать на страницу с самого товара -->
+            <a href="{% url 'product_update' product.id %}"><u>Редактировать</u></a> <!-- добавим ссылку на редактирование товара-->
+            <a href="{% url 'product_delete' product.id %}"><u> Удалить </u></a> <!-- добавим ссылку на удаление товара-->
         </td>
         <td>
             {{ product.category.name|title }}
@@ -47,6 +49,8 @@ Products
     </tr>
     {% endfor %}
 </table>
+
+<a href="{% url 'product_create' %}">Добавить новый товар</a> <br>
 
 {% if is_paginated %}
 
@@ -69,4 +73,5 @@ Products
     {% endif %}
 
 {% endif %}
+
 {% endblock content %}
