@@ -25,8 +25,7 @@ class PostSearch(ListView):
     model = Post
     template_name = 'search_news.html'
     context_object_name = 'news'
-    queryset = Post.objects.order_by('-id')
-    paginate_by = 1
+    ordering = ['-id']
     form_class = PostForm
 
     def get_context_data(self, **kwargs):
