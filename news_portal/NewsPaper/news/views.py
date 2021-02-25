@@ -10,12 +10,9 @@ class PostList(ListView):
     model = Post
     template_name = 'news.html'
     context_object_name = 'news'
-    queryset = Post.objects.order_by('-id')
+    # queryset = Post.objects.order_by('-id')
+    ordering = ['-id']
     paginate_by = 10
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 
 class PostDetail(DetailView):

@@ -39,7 +39,8 @@ Delete News
 <form method="POST">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" value="Удалить новость">
+    Вы уверены, что хотите удалить новость?: <input type="submit" value="Да">
+
 </form>
 
 <hr>
