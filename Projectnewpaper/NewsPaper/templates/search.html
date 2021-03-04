@@ -1,0 +1,54 @@
+<!--  наследуемся от шаблона default.html, который мы создавали ещё во времена flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %} <!-- не забываем заранее загружать наши фильтры! -->
+
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+<h1>Поиск новостей</h1>
+<h3>{{ time_now|date:'d M Y' }}</h3> <!-- Здесь мы применяем фильтр date. Он очень похож на метод strftime у даты.
+    С его помощью мы можем выводить дату в нужном нам формате -->
+
+<!-- Перед таблицей добавим форму для поиска -->
+<form method="GET">
+    {{ filter.form }} <!-- Форму от фильтров за нас сделает django. А вот кнопку, увы придётся делать самому -->
+    <input type="submit" value="Найти">
+</form>
+
+{% if news %}
+        <table>
+            <tr>
+                <td>
+                    Заголовок
+                </td>
+                <td>
+                    Дата публикации
+                </td>
+                <td>
+                    Текст статьи
+                </td>
+            </tr>
+        {% for new in filter.qs %} <!-- поменяем products на filter.qs,
+        т.к. теперь мы забираем уже отобранную по каким-то параметрам информацию -->
+            <tr>
+                <td>
+                    <p align="justify"> {{ new.header_post|truncatechars:30|censor }} <p/>
+                </td>
+                <td>
+                    {{ new.date_post|date:'d M Y h:m' }}
+                </td>
+                <td>
+                    <p align="justify"> {{ new.text_post|truncatechars:50|censor }} <p/>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+
+
+{% endif %}
+
+{% endblock content %}

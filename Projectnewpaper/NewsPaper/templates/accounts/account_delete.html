@@ -1,0 +1,31 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %} <!-- не забываем заранее загружать наши фильтры! -->
+
+{% block title %} Product list {% endblock title %}
+
+{% block content %}
+<h2>Вы действительно хотите удалить данный аккаунт?</h2>
+<table>
+    <thead>
+        <th>
+            Author
+        </th>
+        <th>
+            Rating Author
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ author.author }}
+        </td>
+        <td>
+            {{ author.rating_author }}
+        </td>
+    </tr>
+</table>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %}
