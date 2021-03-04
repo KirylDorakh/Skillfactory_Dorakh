@@ -1,7 +1,12 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
 
-from .models import Post
+from django.utils.decorators import method_decorator
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+from .models import Post, Author
 from .filters import PostFilter
 from .forms import PostForm
 
@@ -50,7 +55,7 @@ class PostCreate(CreateView):
     success_url = '/news/'
 
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'post_update.html'
     form_class = PostForm
     success_url = '/news/'
@@ -60,7 +65,7 @@ class PostUpdate(UpdateView):
         return Post.objects.get(pk=id)
 
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
     template_name = 'post_delete.html'
     queryset = Post.objects.all()
     success_url = '/news/'
@@ -68,3 +73,11 @@ class PostDelete(DeleteView):
     def get_object(self, **kwargs):
         id = self.kwargs.get('pk')
         return Post.objects.get(pk=id)
+
+
+class AuthorList(ListView):
+    model = Author
+    template_name = 'authors.html'
+    context_object_name = 'authors'
+
+
