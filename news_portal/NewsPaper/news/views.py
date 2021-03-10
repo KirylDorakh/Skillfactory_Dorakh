@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.utils.decorators import method_decorator
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from .models import Post, Author
 from .filters import PostFilter
@@ -13,7 +13,7 @@ from .forms import PostForm
 
 class PostList(ListView):
     model = Post
-    template_name = 'news.html'
+    template_name = 'news/news.html'
     context_object_name = 'news'
     # queryset = Post.objects.order_by('-id')
     ordering = ['-id']
@@ -22,13 +22,13 @@ class PostList(ListView):
 
 class PostDetail(DetailView):
     model = Post
-    template_name = 'post.html'
+    template_name = 'news/post.html'
     context_object_name = 'post'
 
 
 class PostSearch(ListView):
     model = Post
-    template_name = 'search_news.html'
+    template_name = 'news/search_news.html'
     context_object_name = 'news'
     ordering = ['-id']
     form_class = PostForm
@@ -49,14 +49,16 @@ class PostSearch(ListView):
         return super().get(request, *args, **kwargs)
 
 
-class PostCreate(CreateView):
-    template_name = 'post_create.html'
+class PostCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+    permission_required = ('news.add_post',)
+    template_name = 'news/post_create.html'
     form_class = PostForm
     success_url = '/news/'
 
 
-class PostUpdate(LoginRequiredMixin, UpdateView):
-    template_name = 'post_update.html'
+class PostUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    permission_required = ('news.change_post',)
+    template_name = 'news/post_update.html'
     form_class = PostForm
     success_url = '/news/'
 
@@ -65,8 +67,9 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
         return Post.objects.get(pk=id)
 
 
-class PostDelete(LoginRequiredMixin, DeleteView):
-    template_name = 'post_delete.html'
+class PostDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    permission_required = ('news.delete_post',)
+    template_name = 'news/post_delete.html'
     queryset = Post.objects.all()
     success_url = '/news/'
 

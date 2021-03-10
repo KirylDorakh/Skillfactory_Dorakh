@@ -28,20 +28,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'news',
-    'accounts',
-
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'fpages',
-
-    'django_filters',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.google',
+
+    'news',
+    'sign',
+    'protect',
+    'fpages',
+
+    'django_filters',
 ]
 
 SITE_ID = 1
@@ -143,7 +144,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-LOGIN_URL = 'accounts/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/news/'
 
 ACCOUNT_EMAIL_REQUIRED = True
@@ -151,3 +152,5 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}

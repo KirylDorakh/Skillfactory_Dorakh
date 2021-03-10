@@ -2,25 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/authors.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/registration/logged_out.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/protect/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/sign/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/templates/protect/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/templates/sign/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/templates/sign/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sign/simple_signup/templates/sign/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/protect/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/sign/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/pythonProjectsimple.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/protect/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/templates/protect/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/templates/sign/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/templates/sign/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/templates/sign/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projectnewpaper/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Projectnewpaper/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projectnewpaper/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../Projectnewpaper/NewsPaper/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/protect/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/sign/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/accounts/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../pythonProjectsimple/simple/sign/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/simple_signup/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/flatpages/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/flatpages/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/flatpages/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/flatpages/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/post_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news/post_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/post_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news/post_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/post_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news/post_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/registration/logged_out.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/registration/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/templates/search_news.html" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/templates/news/search_news.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +79,13 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\templates\news" />
+      <recent name="C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\templates\sign" />
       <recent name="C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\templates\registration" />
       <recent name="C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\templates" />
     </key>
