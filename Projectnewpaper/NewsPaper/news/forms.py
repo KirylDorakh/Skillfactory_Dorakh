@@ -1,16 +1,9 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, Form, CharField, IntegerField, EmailField
 from .models import Post, Author
-
 
 class PostForm(ModelForm):
 
     class Meta:
         model = Post
-        fields = ['author_post', 'header_post', 'text_post', 'category_post']
+        fields = ['headline', 'author', 'content', 'categories', 'art_or_nw']
 
-
-class AuthorForm(ModelForm):
-
-    class Meta:
-        model = Author
-        fields = ['author', 'rating_author']

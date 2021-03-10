@@ -1,43 +1,49 @@
 {% extends 'flatpages/default.html' %}
+{% load custom_filters %}
 
-{% load custom_filters %} <!-- не забываем заранее загружать наши фильтры! -->
+{% block title %}
+Delete News
+{% endblock title %}
 
-{% block title %} Product list {% endblock title %}
 
 {% block content %}
-<h2>Вы действительно хотите удалить данную новость?</h2>
+<h2> Удалить новость </h2>
+<hr>
 <table>
     <thead>
         <th>
-            Author
+            Заголовок
         </th>
         <th>
-            Date
+            Дата публикации
         </th>
         <th>
-            Header
-        </th>
-        <th>
-            Rating
+            Контент
         </th>
     </thead>
     <tr>
         <td>
-            {{ post.author_post }}
+            {{ post.headline | censor}}
         </td>
         <td>
-            {{ post.date_post }}
+            {{ post.post_time | date:'d-M-Y'}}
         </td>
         <td>
-            {{ post.header_post|censor }}
+            {{ post.content }}
         </td>
-        <td>
-            {{ post.rating_post }}
-        </td>
+
     </tr>
 </table>
 
+<hr>
 <form method="POST">
     {% csrf_token %}
-    <input type="submit" value="подтвердить"></form>
+    {{ form }}
+    Вы уверены, что хотите удалить новость?: <input type="submit" value="Да">
+
+</form>
+
+<hr>
+ <a href="/news/">Вернуться на страницу со всеми новостями</a>
+<hr>
 {% endblock content %}
