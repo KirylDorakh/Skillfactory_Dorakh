@@ -45,7 +45,6 @@ class PostSearch(ListView):
 
         if form.is_valid():
             form.save()
-
         return super().get(request, *args, **kwargs)
 
 

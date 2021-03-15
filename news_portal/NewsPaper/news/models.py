@@ -24,6 +24,8 @@ class Author(models.Model):
 
 
 class Category(models.Model):
+
+    subscribers = models.ManyToManyField(User, through='CategoryUser')
     name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
@@ -65,6 +67,9 @@ class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+class CategoryUser(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
