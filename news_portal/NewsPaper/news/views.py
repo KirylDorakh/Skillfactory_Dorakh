@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
 
 from django.utils.decorators import method_decorator
@@ -6,9 +6,9 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
-from .models import Post, Author
-from .filters import PostFilter
-from .forms import PostForm
+from .models import Post, Author, Category, CategoryUser
+from .filters import PostFilter, CategoryFilter
+from .forms import PostForm, CategoryForm
 
 
 class PostList(ListView):
@@ -24,6 +24,28 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'news/post.html'
     context_object_name = 'post'
+
+
+class CategoriesList(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = 'news/categories.html'
+    context_object_name = 'news'
+    ordering = ['-id']
+    form_class = CategoryForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = CategoryFilter(self.request.GET,
+                                          queryset=self.get_queryset())
+        context['form'] = CategoryForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        subs = CategoryUser(
+            category=request.POST['name'],
+            user=request.user
+        )
+        subs.save()
 
 
 class PostSearch(ListView):

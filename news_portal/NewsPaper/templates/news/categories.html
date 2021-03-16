@@ -1,0 +1,83 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+
+{% block title %}
+Categories
+{% endblock title %}
+
+
+{% block content %}
+
+<h2>По категориям</h2>
+<h5>Вы зашли как {{request.user.username}}</h5>
+<a href="/news/"><h5>Вернуться на страницу со всеми новостями</h5></a>
+<hr>
+<form method="GET">
+    {{ filter.form }}
+    <input type="submit" value="Найти">
+</form>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    {%for i in filter.qs %}
+        {{ i.categories.all }}
+    {% endfor %}
+
+    <br>
+    <input type="submit" value="подписаться">
+
+</form>
+
+<hr>
+    {% if news %}
+        <table>
+            <tr>
+                <td>
+                    Заголовок
+                      <hr>
+                </td>
+                <td>
+                    Дата публикации
+                      <hr>
+                </td>
+                <td>
+                    Контент
+                      <hr>
+                </td>
+                <td>
+                    Категория
+                <hr>
+                </td>
+            </tr>
+            {% for post in filter.qs %}
+            <tr>
+                <td>
+                    <a href="{% url 'post' post.id %}">{{ post.headline | censor}}</a>
+                </td>
+                <td>
+                    {{ post.post_time | date:'d-M-Y'}}
+                </td>
+                <td>
+                    {{ post.content|censor|truncatechars:50 }}
+                </td>
+                <td>
+                    {%for category in post.categories.all %}
+                    {{ category }}
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <h3>Новостей нет</h3>
+    {% endif %}
+
+<hr>
+<button> <a href="/sign/logout/">Выйти из аккаунта</a> </button>
+<hr>
+
+{% endblock content %}
