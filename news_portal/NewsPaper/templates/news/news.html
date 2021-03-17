@@ -13,7 +13,7 @@ News
 <h4>Всего на странице: {{ news|length }} </h4>
 <a href="search"><h4>Поиск</h4></a>
 <br>
-<a href="categories"><h4>По категориям</h4></a>
+<a href="subs"><h4>Подписаться</h4></a>
     <hr>
     {% if news %}
         <table>
@@ -30,6 +30,10 @@ News
                     Контент
                       <hr>
                 </td>
+                <td>
+                    Категория
+                <hr>
+                </td>
             </tr>
             {% for post in news %}
             <tr>
@@ -43,6 +47,13 @@ News
                 </td>
                 <td>
                     {{ post.content|censor|truncatechars:50 }}
+                </td>
+                <td>
+                    {%for category in post.categories.all %}
+                    {{ category }}
+                    <a href="{% url 'subs_update' category.id %}"><u>Подписаться</u></a>
+                    <br>
+                    {% endfor %}
                 </td>
             </tr>
             {% endfor %}

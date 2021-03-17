@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Subs
+{% endblock title %}
+
+{% block content %}
+    <h5>Вы зашли как {{request.user.username}}</h5>
+    <h3>Подписаться на {{categories.name}}</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    Вы уверены что хотите подписаться на категорию {{categories.name}}?
+    <input type="submit" value="Подписаться">
+</form>
+    <hr>
+    <a href="/news/">Вернуться на страницу со всеми новостями</a>
+    <hr>
+
+{% endblock content %}

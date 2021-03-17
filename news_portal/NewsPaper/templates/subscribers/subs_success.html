@@ -1,21 +1,14 @@
 {% extends 'flatpages/default.html' %}
 
 {% block title %}
-Create News
+Success
 {% endblock title %}
 
-
 {% block content %}
-<h2> Редактировать новость </h2>
-<hr>
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Редактировать новость">
-</form>
+    <h2>{{ user.username }} Спасибо за подписку !</h2>
 
 <hr>
  <a href="/news/">Вернуться на страницу со всеми новостями</a>
 <hr>
+
 {% endblock content %}

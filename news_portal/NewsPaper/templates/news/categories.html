@@ -2,7 +2,6 @@
 
 {% load custom_filters %}
 
-
 {% block title %}
 Categories
 {% endblock title %}
@@ -21,12 +20,9 @@ Categories
 
 <form method="POST">
     {% csrf_token %}
-    {{ form }}
-    {%for i in filter.qs %}
-        {{ i.categories.all }}
-    {% endfor %}
-
     <br>
+    {{ filter.form }}
+
     <input type="submit" value="подписаться">
 
 </form>
