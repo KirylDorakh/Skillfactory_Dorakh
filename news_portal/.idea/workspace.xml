@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NewsPaper/news/scheduler.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NewsPaper/news/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NewsPaper/news/task.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NewsPaper/templates/account/email/email_confirmation_signup_message.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribers/mail_subscription_update.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NewsPaper/templates/subscribers/subscribe_created.html" afterDir="false" />
@@ -591,8 +593,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
