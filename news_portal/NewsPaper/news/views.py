@@ -3,15 +3,21 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, reverse, redirect
 
 from django.core.mail import send_mail
+from django.core.mail import mail_admins
+from django.core.mail import mail_managers
+from django.core.mail import EmailMultiAlternatives
 
 from django.utils.decorators import method_decorator
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+from django.template.loader import render_to_string # импортируем функцию, которая срендерит наш html в текст
+
 from .models import Post, Author, Category, CategoryUser
 from .filters import PostFilter, CategoryFilter
 from .forms import PostForm, CategoryForm
+
 
 
 class PostList(ListView):
@@ -121,6 +127,13 @@ class Subs(LoginRequiredMixin, ListView):
         subscribe.subscribers.add(subscriber)
         subscribe.save()
 
+        send_mail(
+            subject=subscribe.name,
+            message=f'hello {subscriber.username}',
+            from_email='kyr.dor@mail.ru',
+            recipient_list=[subscriber.email]
+        )
+
         return redirect('/news/subs_success')
 
 class SubsSuccess(LoginRequiredMixin, ListView):
@@ -144,12 +157,30 @@ class SubsUpdate(LoginRequiredMixin, UpdateView):
         subscribe.subscribers.add(subscriber)
         subscribe.save()
 
-        send_mail(
-            subject=f'{subscribe.subscribers} {subscribe.name}',  # имя клиента и дата записи будут в теме для удобства
-            message=f'Спасибо за подписку', # сообщение с кратким описанием проблемы
-            from_email='kirill.dorokh@yandex.ru', # здесь указываете почту, с которой будете отправлять (об этом попозже)
-            recipient_list=['kirill.dorokh@gmail.com',] # здесь список получателей. Например, секретарь, сам врач и т. д.
+        # получем наш html
+        html_content = render_to_string(
+            'subscribers/subscribe_created.html',
+            {
+                'subscribe': subscribe,
+                'subscriber': subscriber,
+            }
         )
+
+        # отправляем письмо всем админам по аналогии с send_mail, только здесь получателя указывать не надо
+        mail_admins(
+            subject=f'{subscribe.name} {subscriber.username}',
+            message=f'Подписка на {subscribe.name} от {subscriber.username}',
+        )
+
+        msg = EmailMultiAlternatives(
+            subject=f'Подписка на {subscribe.name}',
+            body=f'Спасибо, что подписались на {subscribe.name}, {subscriber.username}', #  это то же, что и message
+            from_email='kyr.dor@mail.ru',
+            to=[subscriber.email], # это то же, что и recipients_list
+        )
+        msg.attach_alternative(html_content, "text/html") # добавляем html
+
+        msg.send() # отсылаем
 
         return redirect('/news/subs_success')
 
