@@ -1,6 +1,11 @@
-from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
 from django.shortcuts import render, reverse, redirect
+
+from django.http import HttpResponse
+from django.views import View
+from .tasks import hello, printer
+from datetime import datetime, timedelta, timezone
 
 from django.core.mail import send_mail
 from django.core.mail import mail_admins
@@ -183,6 +188,14 @@ class SubsUpdate(LoginRequiredMixin, UpdateView):
         msg.send() # отсылаем
 
         return redirect('/news/subs_success')
+
+
+class IndexView(View):
+    def get(self, request):
+        printer.apply_async([10], eta = datetime.now(timezone.utc) + timedelta(seconds=5))
+        # or datetime.utcnow()
+        hello.delay()
+        return HttpResponse('Hello!')
 
 
 

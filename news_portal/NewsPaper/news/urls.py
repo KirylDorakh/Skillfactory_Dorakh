@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PostList, PostDetail, PostSearch, PostCreate, PostUpdate, PostDelete, AuthorList, CategoriesList, Subs, SubsSuccess, SubsUpdate
+from .views import PostList, PostDetail, PostSearch, PostCreate, PostUpdate, PostDelete, AuthorList, CategoriesList, Subs, SubsSuccess, SubsUpdate, IndexView
 
 urlpatterns = [
     path('', PostList.as_view()),
@@ -15,5 +15,7 @@ urlpatterns = [
     path('subs', Subs.as_view(), name='subs'),
     path('subs/<int:pk>/', SubsUpdate.as_view(), name='subs_update'),
     path('subs_success', SubsSuccess.as_view(), name='subs_success'),
+
+    path('test_celery', IndexView.as_view()),
 
 ]
