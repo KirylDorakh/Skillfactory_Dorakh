@@ -40,7 +40,7 @@ def my_job():
                 subject=f'{sub.username}',
                 # имя клиента будет в теме для удобства
                 body=None,  # сообщение с кратким описанием проблемы
-                from_email='kyr.dor@mail.ru',  # здесь указываете почту, с которой будете отправлять
+                from_email='kir.dorakh@mail.ru',  # здесь указываете почту, с которой будете отправлять
                 to=[sub.email]
             )
             msg.attach_alternative(html_content, "text/html")  # добавляем html

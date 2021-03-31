@@ -4,7 +4,7 @@ from django.shortcuts import render, reverse, redirect
 
 from django.http import HttpResponse
 from django.views import View
-from .tasks import hello, printer
+from .tasks import hello, printer, mailing
 from datetime import datetime, timedelta, timezone
 
 from django.core.mail import send_mail
@@ -192,8 +192,10 @@ class SubsUpdate(LoginRequiredMixin, UpdateView):
 
 class IndexView(View):
     def get(self, request):
-        printer.apply_async([10], eta = datetime.now(timezone.utc) + timedelta(seconds=5))
+        printer.apply_async([10], eta = datetime.now(timezone.utc) + timedelta(seconds=5)) #eta = datetime.now(timezone.utc) + timedelta(seconds=5))
         # or datetime.utcnow()
+        eta = datetime.now(timezone.utc) + timedelta(seconds=10)
+        print(eta)
         hello.delay()
         return HttpResponse('Hello!')
 

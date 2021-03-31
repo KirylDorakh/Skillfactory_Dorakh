@@ -161,8 +161,8 @@ ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 
 EMAIL_HOST = 'smtp.mail.ru' # адрес сервера Яндекс-почты для всех один и тот же
 EMAIL_PORT = 465 # порт smtp сервера тоже одинаковый
-EMAIL_HOST_USER = 'kyr.dor' # ваше имя пользователя, например если ваша почта user@yandex.ru, то сюда надо писать user, иными словами, это всё то что идёт до собаки
-EMAIL_HOST_PASSWORD = 'Dfcz2999' # пароль от почты
+EMAIL_HOST_USER = 'kir.dorakh' # ваше имя пользователя, например если ваша почта user@yandex.ru, то сюда надо писать user, иными словами, это всё то что идёт до собаки
+EMAIL_HOST_PASSWORD = 'Dfcz3579' # пароль от почты
 EMAIL_USE_SSL = True
 
 ADMINS = [
@@ -174,9 +174,9 @@ MANAGERS = [
     ('kirill.dorokh', 'kirill.dorokh@gmail.com'),
 ]
 
-SERVER_EMAIL = 'kyr.dor@mail.ru'
+SERVER_EMAIL = 'kir.dorakh@mail.ru'
 
-DEFAULT_FROM_EMAIL = 'kyr.dor@mail.ru'
+DEFAULT_FROM_EMAIL = 'kir.dorakh@mail.ru'
 
 # формат даты, которую будет воспрнимать наш задачник(вспоминаем урок по фильтрам)
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
@@ -190,3 +190,5 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TIMEZONE = 'UTC'

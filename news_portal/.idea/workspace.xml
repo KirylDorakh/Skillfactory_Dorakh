@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NewsPaper/news/tasks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/skillfactory_mcdonalds-main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../skillfactory_mcdonalds-main/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/celery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/celery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/management/commands/runapscheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/management/commands/runapscheduler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

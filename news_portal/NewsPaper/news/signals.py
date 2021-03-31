@@ -8,6 +8,8 @@ from django.core.signals import request_finished
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 
+from .tasks import mailing
+
 from .models import Post, Category
 
 @receiver(post_save, sender=Post)
@@ -27,6 +29,7 @@ def notify_managers_appointment(sender, instance, created, **kwargs):
 def notify_subscribers(sender, action, instance, **kwargs):
 
     if action == 'post_add':
+
         new_post_categories = instance.categories.all()
         list_of_users_emails = []
         list_of_users_cat = []
@@ -35,8 +38,10 @@ def notify_subscribers(sender, action, instance, **kwargs):
             subs = cat.subscribers.all()
             for sub in subs:
                 list_of_users_emails.append(sub.email)
-        print(list_of_users_cat)
         cat = ' '.join(list_of_users_cat)
+
+        pid = instance.id
+        mailing.apply_async([pid], countdown = 5)
 
         link_id = instance.id
         link = f'http://127.0.0.1:8000/news/{link_id}'
@@ -47,11 +52,12 @@ def notify_subscribers(sender, action, instance, **kwargs):
                                         }
                                         )
         msg = EmailMultiAlternatives(
-            subject=f'Новый пост',
+            subject=f'Новый пост from signals',
             body=f'{instance.headline}, {instance.preview()}, {instance.id}', #  это то же, что и message
-            from_email='kyr.dor@mail.ru',
+            from_email='kir.dorakh@mail.ru',
             to=list_of_users_emails
         )
         msg.attach_alternative(html_content, "text/html") # добавляем html
 
         msg.send() # отсылаем
+
