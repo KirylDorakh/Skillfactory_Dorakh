@@ -8,9 +8,14 @@ Authors
 
 {% block content %}
 <h2>Авторы</h2>
+{% load cache %} <!-- Загружаем кэширование -->
+    {% cache 30 header %} <!-- Кэшируем отдельный блок на 30 секунд -->
+        {% block header %}
+            <h3>Всего на странице: {{ authors|length }} </h3>
+            <hr>
+        {% endblock header %}
+    {% endcache %}
 
-<h3>Всего на странице: {{ authors|length }} </h3>
-    <hr>
     {% if authors %}
         <table>
             <tr>

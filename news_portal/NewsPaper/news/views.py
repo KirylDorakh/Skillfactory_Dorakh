@@ -1,3 +1,7 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
 from django.shortcuts import render, reverse, redirect
@@ -23,9 +27,12 @@ from .models import Post, Author, Category, CategoryUser
 from .filters import PostFilter, CategoryFilter
 from .forms import PostForm, CategoryForm
 
+from django.core.cache import cache # импортируем наш кэш
+
 
 
 class PostList(ListView):
+    logger.error("Test!!")
     model = Post
     template_name = 'news/news.html'
     context_object_name = 'news'
@@ -38,7 +45,17 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'news/post.html'
     context_object_name = 'post'
+    queryset = Post.objects.all()
 
+    def get_object(self, *args, **kwargs): # переопределяем метод получения объекта, как ни странно
+        obj = cache.get(f'post-{self.kwargs["pk"]}', None)  # кэш очень похож на словарь, и метод get действует также. Он забирает значение по ключу, если его нет, то забирает None.
+
+        # если объекта нет в кэше, то получаем его и записываем в кэш
+        if not obj:
+            obj = super().get_object(queryset=self.get_queryset())
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+
+        return obj
 
 class CategoriesList(LoginRequiredMixin, ListView):
     model = Post

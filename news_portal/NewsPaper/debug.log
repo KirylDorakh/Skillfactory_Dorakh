@@ -1,0 +1,4 @@
+2021-05-25 20:18:26,609 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-05-25 20:18:26,634 news.views   ERROR    Test!!
+2021-05-25 22:11:25,272 django.utils.autoreload INFO     C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\NewsPaper\settings.py changed, reloading.
+2021-05-25 22:11:25,274 asyncio      DEBUG    Using proactor: IocpProactor

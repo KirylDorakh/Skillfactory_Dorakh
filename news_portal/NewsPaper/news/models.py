@@ -2,6 +2,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.core.cache import cache
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -48,6 +50,10 @@ class Post(models.Model):
 
     categories = models.ManyToManyField(Category)
 
+    @property
+    def on_top(self):
+        return self.rating_of_post > 0
+
     def __str__(self):
         return self.headline
 
@@ -61,6 +67,13 @@ class Post(models.Model):
 
     def preview(self):
         return self.content[:123] + "..."
+
+    def get_absolute_url(self):  # добавим абсолютный путь, чтобы после создания нас перебрасывало на страницу с товаром
+        return f'/news/{self.id}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # сначала вызываем метод родителя, чтобы объект сохранился
+        cache.delete(f'post-{self.pk}')  # затем удаляем его из кэша, чтобы сбросить его
 
 
 class CategoryUser(models.Model):
