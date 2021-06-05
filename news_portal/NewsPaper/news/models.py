@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 
 from django.core.cache import cache
 
+#для перевода
+from django.utils.translation import gettext as _
+from django.utils.translation import pgettext_lazy
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -28,7 +32,7 @@ class Author(models.Model):
 class Category(models.Model):
 
     subscribers = models.ManyToManyField(User, through='CategoryUser')
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255, unique=True, help_text=('category name'))
 
     def __str__(self):
         return self.name

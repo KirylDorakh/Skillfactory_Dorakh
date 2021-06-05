@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PostList, PostDetail, PostSearch, PostCreate, PostUpdate, PostDelete, AuthorList, CategoriesList, Subs, SubsSuccess, SubsUpdate, IndexView
+from .views import PostList, PostDetail, PostSearch, PostCreate, PostUpdate, PostDelete, AuthorList, CategoriesList, Subs, SubsSuccess, SubsUpdate, IndexView, Index
 
 from django.views.decorators.cache import cache_page
 
@@ -19,5 +19,7 @@ urlpatterns = [
     path('subs_success', SubsSuccess.as_view(), name='subs_success'),
 
     path('test_celery', IndexView.as_view()),
+
+    path('index',Index.as_view())
 
 ]

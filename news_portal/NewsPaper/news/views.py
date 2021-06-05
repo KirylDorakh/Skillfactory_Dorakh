@@ -2,6 +2,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+#для перевода
+from django.utils.translation import gettext as _
+
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
 from django.shortcuts import render, reverse, redirect
@@ -215,6 +218,16 @@ class IndexView(View):
         print(eta)
         hello.delay()
         return HttpResponse('Hello!')
+
+
+class Index(View):
+    def get(self, request, *args, **kwargs):
+        if request.LANGUAGE_CODE == 'ru':
+            string = _('Hello world')
+
+            return HttpResponse(string)
+        else:
+            return HttpResponse("You prefer to read another language.")
 
 
 
