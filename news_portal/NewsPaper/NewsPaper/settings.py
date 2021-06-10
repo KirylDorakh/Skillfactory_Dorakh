@@ -24,6 +24,8 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation', #перевод моделей
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -62,7 +64,8 @@ MIDDLEWARE = [
 
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 
-    'news.middleware.timing'
+    'news.middleware.timing1',
+    'news.middleware.TimezoneMiddleware', # add that middleware!
 
 ]
 
@@ -73,8 +76,8 @@ LOCALE_PATH = [
 ]
 
 LANGUAGES = [
-    ('en', _('English')),
-    ('ru', _('Russian'))
+    ('en-us', 'English'),
+    ('ru', 'Russian')
 ]
 
 TEMPLATES = [

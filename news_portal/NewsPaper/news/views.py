@@ -3,7 +3,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 #для перевода
+import pytz #  импортируем стандартный модуль для работы с часовыми поясами
 from django.utils.translation import gettext as _
+from django.utils.translation import activate, get_supported_language_variant, LANGUAGE_SESSION_KEY
+from datetime import datetime
+from django.utils import timezone
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
@@ -26,7 +30,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from django.template.loader import render_to_string # импортируем функцию, которая срендерит наш html в текст
 
-from .models import Post, Author, Category, CategoryUser
+from .models import Post, Author, Category, CategoryUser, MyModel
 from .filters import PostFilter, CategoryFilter
 from .forms import PostForm, CategoryForm
 
@@ -221,13 +225,25 @@ class IndexView(View):
 
 
 class Index(View):
-    def get(self, request, *args, **kwargs):
-        if request.LANGUAGE_CODE == 'ru':
-            string = _('Hello world')
+    def get(self, request):
+        # . Translators: This message appears on the home page only
+        models = MyModel.objects.all()
+        curent_time = datetime.now()
+        curent_time2 = timezone
 
-            return HttpResponse(string)
-        else:
-            return HttpResponse("You prefer to read another language.")
+        context = {
+            'models': models,
+            'current_time': curent_time,
+            'current_time2': curent_time2,
+            'timezones': pytz.common_timezones  # добавляем в контекст все доступные часовые пояса
+        }
+
+        return HttpResponse(render(request, 'index.html', context))
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/')
+
 
 
 

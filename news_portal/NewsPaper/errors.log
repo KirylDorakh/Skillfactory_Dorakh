@@ -1,0 +1,29 @@
+2021-06-07 21:01:43,636 ERROR    "POST /admin/news/post/40/change/ HTTP/1.1" 500 206954 C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py
+2021-06-07 22:10:36,167 ERROR    Internal Server Error: /news/index C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\utils\log.py
+Traceback (most recent call last):
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\news\views.py", line 231, in get
+    curent_time2 = timezone.now()
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+2021-06-07 22:10:36,172 ERROR    "GET /news/index HTTP/1.1" 500 82150 C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py
+2021-06-07 22:15:51,417 ERROR    Internal Server Error: /news/index C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\utils\log.py
+Traceback (most recent call last):
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\views\generic\base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\NewsPaper\news\views.py", line 232, in get
+    curent_time2 = timezone.now()
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+2021-06-07 22:15:51,423 ERROR    "GET /news/index HTTP/1.1" 500 82392 C:\Users\admin\projects\Skillfactory_Dorakh\news_portal\venv\lib\site-packages\django\core\servers\basehttp.py

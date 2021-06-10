@@ -1,18 +1,20 @@
 from django.contrib import admin
-from .models import Post, Author, Category, CategoryUser
+from .models import Post, Author, Category, CategoryUser, MyModel
+from modeltranslation.admin import TranslationAdmin
 
 
 # напишем уже знакомую нам функцию обнуления товара на складе
 def nullfy_rating_of_post(modeladmin, request, queryset): # все аргументы уже должны быть вам знакомы, самые нужные из них это request — объект хранящий информацию о запросе и queryset — грубо говоря набор объектов, которых мы выделили галочками.
     queryset.update(rating_of_post=0)
-nullfy_rating_of_post.short_description = 'Обнулить рейтинг' # описание для более понятного представления в админ панеле задаётся, как будто это объект
+    nullfy_rating_of_post.short_description = 'Обнулить рейтинг' # описание для более понятного представления в админ панеле задаётся, как будто это объект
 
 
 class CategoryUserInline(admin.TabularInline):
     model = CategoryUser
     extra = 1
 
-class CategoryAdmin(admin.ModelAdmin):
+#class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslationAdmin):
     inlines = (CategoryUserInline,)
 
 # создаём новый класс для представления товаров в админке
@@ -25,9 +27,13 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('headline', 'categories__name')  # тут всё очень похоже на фильтры из запросов в базу, давайте
     actions = [nullfy_rating_of_post]  # добавляем действия в список
 
+class MyModelAdmin(TranslationAdmin):
+    model = MyModel
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Author)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(MyModel),
 
 #admin.site.unregister(Post)
 

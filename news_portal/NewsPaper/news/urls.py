@@ -20,6 +20,6 @@ urlpatterns = [
 
     path('test_celery', IndexView.as_view()),
 
-    path('index',Index.as_view())
+    path('index', Index.as_view())
 
 ]

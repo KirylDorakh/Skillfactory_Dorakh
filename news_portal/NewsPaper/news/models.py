@@ -32,7 +32,7 @@ class Author(models.Model):
 class Category(models.Model):
 
     subscribers = models.ManyToManyField(User, through='CategoryUser')
-    name = models.CharField(max_length=255, unique=True, help_text=('category name'))
+    name = models.CharField(max_length=255, unique=True, help_text=_('category name'))
 
     def __str__(self):
         return self.name
@@ -102,3 +102,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment_text
+
+
+class MyModel(models.Model):
+    name = models.CharField(max_length=100)
+    kind = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='kinds',
+        verbose_name=pgettext_lazy('help text for MyModel model', 'This is the help text'),
+    )
