@@ -1,3 +1,14 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
+#для перевода
+import pytz #  импортируем стандартный модуль для работы с часовыми поясами
+from django.utils.translation import gettext as _
+from django.utils.translation import activate, get_supported_language_variant, LANGUAGE_SESSION_KEY
+from datetime import datetime
+from django.utils import timezone
+
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.paginator import Paginator
 from django.shortcuts import render, reverse, redirect
@@ -19,13 +30,16 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from django.template.loader import render_to_string # импортируем функцию, которая срендерит наш html в текст
 
-from .models import Post, Author, Category, CategoryUser
+from .models import Post, Author, Category, CategoryUser, MyModel
 from .filters import PostFilter, CategoryFilter
 from .forms import PostForm, CategoryForm
+
+from django.core.cache import cache # импортируем наш кэш
 
 
 
 class PostList(ListView):
+    logger.error("Test!!")
     model = Post
     template_name = 'news/news.html'
     context_object_name = 'news'
@@ -38,7 +52,17 @@ class PostDetail(DetailView):
     model = Post
     template_name = 'news/post.html'
     context_object_name = 'post'
+    queryset = Post.objects.all()
 
+    def get_object(self, *args, **kwargs): # переопределяем метод получения объекта, как ни странно
+        obj = cache.get(f'post-{self.kwargs["pk"]}', None)  # кэш очень похож на словарь, и метод get действует также. Он забирает значение по ключу, если его нет, то забирает None.
+
+        # если объекта нет в кэше, то получаем его и записываем в кэш
+        if not obj:
+            obj = super().get_object(queryset=self.get_queryset())
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+
+        return obj
 
 class CategoriesList(LoginRequiredMixin, ListView):
     model = Post
@@ -198,6 +222,28 @@ class IndexView(View):
         print(eta)
         hello.delay()
         return HttpResponse('Hello!')
+
+
+class Index(View):
+    def get(self, request):
+        # . Translators: This message appears on the home page only
+        models = MyModel.objects.all()
+        curent_time = datetime.now()
+        curent_time2 = timezone
+
+        context = {
+            'models': models,
+            'current_time': curent_time,
+            'current_time2': curent_time2,
+            'timezones': pytz.common_timezones  # добавляем в контекст все доступные часовые пояса
+        }
+
+        return HttpResponse(render(request, 'index.html', context))
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/')
+
 
 
 

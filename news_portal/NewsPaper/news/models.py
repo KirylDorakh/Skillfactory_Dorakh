@@ -2,6 +2,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from django.core.cache import cache
+
+#для перевода
+from django.utils.translation import gettext as _
+from django.utils.translation import pgettext_lazy
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -26,7 +32,7 @@ class Author(models.Model):
 class Category(models.Model):
 
     subscribers = models.ManyToManyField(User, through='CategoryUser')
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255, unique=True, help_text=_('category name'))
 
     def __str__(self):
         return self.name
@@ -48,6 +54,10 @@ class Post(models.Model):
 
     categories = models.ManyToManyField(Category)
 
+    @property
+    def on_top(self):
+        return self.rating_of_post > 0
+
     def __str__(self):
         return self.headline
 
@@ -61,6 +71,13 @@ class Post(models.Model):
 
     def preview(self):
         return self.content[:123] + "..."
+
+    def get_absolute_url(self):  # добавим абсолютный путь, чтобы после создания нас перебрасывало на страницу с товаром
+        return f'/news/{self.id}'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # сначала вызываем метод родителя, чтобы объект сохранился
+        cache.delete(f'post-{self.pk}')  # затем удаляем его из кэша, чтобы сбросить его
 
 
 class CategoryUser(models.Model):
@@ -85,3 +102,13 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.comment_text
+
+
+class MyModel(models.Model):
+    name = models.CharField(max_length=100)
+    kind = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name='kinds',
+        verbose_name=pgettext_lazy('help text for MyModel model', 'This is the help text'),
+    )
