@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NewsPaper/news/translation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/cache_files/5553f98e26a3fb1b3d65ea8cf9463deb.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/cache_files/5553f98e26a3fb1b3d65ea8cf9463deb.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/cache_files/57c5822ab08ed23c0e6bbb6773a18872.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/cache_files/57c5822ab08ed23c0e6bbb6773a18872.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/cache_files/91cc181979a27ca39083d54dab8e06b0.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/cache_files/91cc181979a27ca39083d54dab8e06b0.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/cache_files/b50aacf0d266d36d3b688c33a2b31891.djcache" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/cache_files/b50aacf0d266d36d3b688c33a2b31891.djcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/errors.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/locale/ru/LC_MESSAGES/django.mo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/locale/ru/LC_MESSAGES/django.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/news/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="9a3cff02-0c20-4bd1-a21a-d7b31c4d2941" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,6 +86,7 @@
       <workItem from="1623000541494" duration="61000" />
       <workItem from="1623000731587" duration="1353000" />
       <workItem from="1623079449962" duration="6287000" />
+      <workItem from="1623594825935" duration="85000" />
     </task>
     <servers />
   </component>
